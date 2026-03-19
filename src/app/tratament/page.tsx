@@ -7,6 +7,7 @@ import RemedyCard from "@/components/treatment/RemedyCard";
 import DietSection from "@/components/treatment/DietSection";
 import ParasiteProtocolCard from "@/components/treatment/ParasiteProtocolCard";
 import EliminationInfo from "@/components/treatment/EliminationInfo";
+import ShoppingList from "@/components/treatment/ShoppingList";
 import PageContainer from "@/components/shared/PageContainer";
 import SectionHeading from "@/components/shared/SectionHeading";
 import DisclaimerBanner from "@/components/shared/DisclaimerBanner";
@@ -120,6 +121,15 @@ export default function TratamentPage() {
       <section className="mb-12">
         <h2 className="text-xl font-bold text-stone-900 mb-6">Eliminarea Paraziților</h2>
         <EliminationInfo />
+      </section>
+
+      {/* Shopping list */}
+      <section className="mb-12">
+        <h2 className="text-xl font-bold text-stone-900 mb-2">Lista de Cumpărături</h2>
+        <p className="text-sm text-stone-500 mb-6">
+          Tot ce aveți nevoie pentru fiecare protocol, cu link-uri directe și prețuri orientative.
+        </p>
+        <ShoppingList />
       </section>
 
       {/* Key remedies */}
