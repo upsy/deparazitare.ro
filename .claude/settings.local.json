@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.ncbi.nlm.nih.gov)",
+      "WebFetch(domain:pmc.ncbi.nlm.nih.gov)",
+      "WebFetch(domain:www.cdc.gov)",
+      "WebFetch(domain:www.ema.europa.eu)",
+      "WebFetch(domain:www.who.int)",
+      "WebFetch(domain:health.clevelandclinic.org)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --app --src-dir --no-import-alias --yes)"
+    ]
+  }
+}
