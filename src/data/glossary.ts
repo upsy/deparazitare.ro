@@ -16,4 +16,8 @@ export const glossary: GlossaryEntry[] = [
   { term: "Steatoree", definition: "Scaune grase, strălucitoare, urât mirositoare — semn de malabsorbție a grăsimilor." },
   { term: "Trofozoit", definition: "Forma activă, mobilă, a unui protozoar parazit." },
   { term: "Tujona", definition: "Substanță din pelin, cu proprietăți antiparazitare dar și neurotoxice." },
+  { term: "Berberină", definition: "Alcaloid vegetal extras din plante ca Berberis, cu activitate anti-Giardia demonstrată clinic. Contraindicat în alăptare." },
+  { term: "BITC (benzil izotiocianat)", definition: "Substanța activă din semințele de papaya, cu efect antihelmitic direct, în special împotriva Ascaris." },
+  { term: "Acid ricinoleic", definition: "Componentul activ al uleiului de ricin, stimulează contracțiile intestinale prin activarea receptorilor EP3. Folosit ca agent de eliminare după tratament antiparazitar." },
+  { term: "Agent de eliminare", definition: "Substanță laxativă administrată după un remediu care paralizează viermii (ex: semințe de dovleac) pentru a facilita expulzarea lor din intestin." },
 ];

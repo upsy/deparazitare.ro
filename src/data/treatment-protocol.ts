@@ -1,4 +1,4 @@
-import { TreatmentPhase, DietCategory } from "@/lib/types";
+import { TreatmentPhase, DietCategory, EliminationMethod } from "@/lib/types";
 
 export const treatmentPhases: TreatmentPhase[] = [
   {
@@ -86,3 +86,30 @@ export const dietDuration = {
   ideal: "4 săptămâni",
   reason: "Acoperirea unui ciclu complet de viață al paraziților (ouă → larvă → adult)",
 };
+
+export const eliminationMethods: EliminationMethod[] = [
+  {
+    id: "ulei-ricin",
+    name: "Ulei de ricin",
+    mechanism:
+      "Acidul ricinoleic activează receptorii EP3 din mucoasa intestinală, provocând contracții puternice care elimină viermii paralizați. Are și efect antihelmitic direct.",
+    forChildren: false,
+    usage: "Adulți: 1–3 linguri la 2–3 ore după semințele de dovleac. CONTRAINDICAT în sarcină.",
+  },
+  {
+    id: "citrat-magneziu",
+    name: "Citrat de magneziu",
+    mechanism:
+      "Laxativ osmotic — atrage apa în intestin, mărind volumul și stimulând peristaltismul. Mai blând decât uleiul de ricin.",
+    forChildren: true,
+    usage: "Copii 4+: ½ doză de adult, dizolvat în apă. Adulți: doză standard conform prospectului. La 2–3 ore după semințe.",
+  },
+  {
+    id: "psyllium",
+    name: "Fibre (psyllium / tărâțe)",
+    mechanism:
+      "Efect de «mătură intestinală» — fibrele cresc volumul scaunului și ajută la eliminarea mecanică a paraziților. Cea mai blândă opțiune.",
+    forChildren: true,
+    usage: "Copii 4+: 1 linguriță în apă sau iaurt. Adulți: 1–2 linguri în apă, dimineața. Se bea multă apă.",
+  },
+];

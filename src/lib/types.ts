@@ -64,6 +64,44 @@ export interface Remedy {
   breastfeedingNotes: string;
   usage: string[];
   warnings?: string[];
+  targetParasites?: {
+    parasiteId: ParasiteId;
+    efficacy: "high" | "moderate" | "low";
+    notes: string;
+  }[];
+  references?: { pmid?: string; text: string }[];
+}
+
+// Parasite-specific treatment protocol
+export interface ParasiteProtocol {
+  parasiteId: ParasiteId;
+  parasiteName: string;
+  difficulty: "ușor" | "moderat" | "dificil";
+  naturalEfficacy: string;
+  conventionalNote: string;
+  phases: ParasiteProtocolPhase[];
+  repeatCycle: { interval: string; times: number; reason: string };
+}
+
+export interface ParasiteProtocolPhase {
+  phase: number;
+  name: string;
+  duration: string;
+  remedies: {
+    remedyId: string;
+    priority: "primar" | "adjuvant";
+    notes: string;
+  }[];
+  steps: string[];
+}
+
+// Elimination method (post-treatment)
+export interface EliminationMethod {
+  id: string;
+  name: string;
+  mechanism: string;
+  forChildren: boolean;
+  usage: string;
 }
 
 // Treatment phase

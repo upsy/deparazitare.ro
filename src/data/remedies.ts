@@ -7,7 +7,7 @@ export const remedies: Remedy[] = [
     latinName: "Cucurbita pepo",
     activeSubstance: "Cucurbitină",
     mechanism:
-      "Cucurbitina paralizează musculatura paraziților intestinali, provocând desprinderea lor de peretele intestinal și eliminarea prin tranzit intestinal normal.",
+      "Cucurbitina paralizează musculatura paraziților intestinali, provocând desprinderea lor de peretele intestinal. Important: paralizează viermii dar NU îi ucide — este nevoie de un laxativ la 2–3 ore după administrare pentru eliminarea lor efectivă.",
     efficacy:
       "Activitate demonstrată in vitro și în studii pe animale. Studii limitate la om, cu rezultate promițătoare, mai ales pentru tenii. Efect mai slab comparativ cu medicamentele convenționale.",
     evidenceLevel: "preliminary",
@@ -23,6 +23,18 @@ export const remedies: Remedy[] = [
       "Se pot zdrobi și amesteca cu miere sau iaurt",
       "3 zile consecutiv, apoi un laxativ ușor după 2–3 ore",
       "Cura poate fi repetată după 2 săptămâni",
+    ],
+    targetParasites: [
+      {
+        parasiteId: "ascaris",
+        efficacy: "moderate",
+        notes: "Paralizează viermii; necesită laxativ pentru eliminare efectivă",
+      },
+      {
+        parasiteId: "oxiuri",
+        efficacy: "low",
+        notes: "Efect limitat; utilizare tradițională, dovezi slabe",
+      },
     ],
   },
   {
@@ -57,7 +69,7 @@ export const remedies: Remedy[] = [
     mechanism:
       "Alicina afectează metabolismul energetic al paraziților și poate avea efect direct asupra unor protozoare (Giardia).",
     efficacy:
-      "Activitate anti-Giardia demonstrată in vitro. Studii limitate la om. Efect antiparazitar complementar, nu suficient ca monoterapie.",
+      "Activitate anti-Giardia demonstrată in vitro și într-un studiu clinic (Soffar 1991 — 26 copii, toate simptomele rezolvate). Efect antiparazitar complementar.",
     evidenceLevel: "preliminary",
     safetyChildren: "safe",
     safetyBreastfeeding: "caution",
@@ -74,6 +86,16 @@ export const remedies: Remedy[] = [
     warnings: [
       "Poate modifica gustul laptelui matern",
       "Efect antiplachetă — prudență la risc de hemoragie",
+    ],
+    targetParasites: [
+      {
+        parasiteId: "giardia",
+        efficacy: "moderate",
+        notes: "Studiu clinic Soffar 1991: 26 copii, simptome complet rezolvate",
+      },
+    ],
+    references: [
+      { pmid: "1875077", text: "Soffar 1991 — Efect anti-Giardia la copii" },
     ],
   },
   {
@@ -202,9 +224,9 @@ export const remedies: Remedy[] = [
     name: "Probiotice",
     activeSubstance: "Lactobacillus, Bifidobacterium, Saccharomyces boulardii",
     mechanism:
-      "Restabilesc flora intestinală, creează un mediu nefavorabil paraziților, susțin imunitatea mucoasei intestinale. S. boulardii are activitate anti-Giardia.",
+      "Restabilesc flora intestinală, creează un mediu nefavorabil paraziților, susțin imunitatea mucoasei intestinale. S. boulardii are activitate anti-Giardia directă — inhibă aderența trofozoiților la mucoasa intestinală.",
     efficacy:
-      "S. boulardii are activitate anti-Giardia demonstrată. Probioticele susțin recuperarea și previn reinfecția.",
+      "S. boulardii are activitate anti-Giardia demonstrată în studiu clinic randomizat (Besirbellioglu 2006). Probioticele susțin recuperarea și previn reinfecția.",
     evidenceLevel: "preliminary",
     safetyChildren: "safe",
     safetyBreastfeeding: "safe",
@@ -216,6 +238,17 @@ export const remedies: Remedy[] = [
       "Pe toată durata curei antiparazitare",
       "Continuare 2–4 săptămâni după terminarea curei",
       "Formulări pediatrice pentru copii",
+      "Pentru Giardia: preferați formulări cu S. boulardii",
+    ],
+    targetParasites: [
+      {
+        parasiteId: "giardia",
+        efficacy: "moderate",
+        notes: "S. boulardii — RCT Besirbellioglu 2006: reducere semnificativă a duratei infecției",
+      },
+    ],
+    references: [
+      { pmid: "16798698", text: "Besirbellioglu 2006 — S. boulardii adjuvant anti-Giardia (RCT)" },
     ],
   },
   {
@@ -261,6 +294,113 @@ export const remedies: Remedy[] = [
     ],
     warnings: [
       "Supradozarea poate fi toxică — respectați dozele recomandate",
+    ],
+  },
+  // --- Remedii noi ---
+  {
+    id: "berberina",
+    name: "Berberină",
+    activeSubstance: "Berberină (alcaloid vegetal)",
+    mechanism:
+      "Inhibă metabolismul energetic al trofozoiților de Giardia și perturbă aderența lor la mucoasa intestinală. Acțiune antiparazitară directă demonstrată clinic.",
+    efficacy:
+      "Cele mai puternice dovezi clinice dintre remediile naturale anti-Giardia. Două studii pe copii: Gupte 1975 (137 copii, ~90% eliminare) și Choudhry 1972. Eficacitate comparabilă cu metronidazolul în unele studii.",
+    evidenceLevel: "solid",
+    safetyChildren: "caution",
+    safetyBreastfeeding: "danger",
+    childrenNotes:
+      "Cu precauție — sigură la copii peste 4 ani în doze de 5–10 mg/kg/zi, conform review-ului de siguranță (PMID:33149763). PERICULOASĂ la sugari (deplasează bilirubina). Nu se administrează sub 4 ani.",
+    breastfeedingNotes:
+      "CONTRAINDICAT — trece în laptele matern și poate deplasa bilirubina la sugar, crescând riscul de icter neonatal.",
+    usage: [
+      "Copii 4+: 5–10 mg/kg/zi, împărțit în 3 doze, timp de 10 zile",
+      "Adulți: 200–400 mg de 3 ori pe zi, timp de 10 zile",
+      "Se ia cu mâncare pentru a reduce iritația gastrică",
+      "Cura: 10 zile (conform protocoalelor din studii clinice)",
+    ],
+    warnings: [
+      "CONTRAINDICAT în alăptare — trece în lapte, deplasează bilirubina",
+      "NU se administrează sub 4 ani",
+      "Poate interacționa cu medicamente metabolizate hepatic (CYP3A4)",
+      "Poate cauza disconfort gastrointestinal (greață, diaree) la doze mari",
+    ],
+    targetParasites: [
+      {
+        parasiteId: "giardia",
+        efficacy: "high",
+        notes: "2 studii clinice pe copii: ~90% rată de eliminare, comparabilă cu metronidazolul",
+      },
+    ],
+    references: [
+      { pmid: "1096596", text: "Gupte 1975 — Berberină vs metronidazol la 137 copii cu giardioză" },
+      { pmid: "4555485", text: "Choudhry 1972 — Berberină anti-Giardia la copii" },
+      { pmid: "33149763", text: "Review de siguranță a berberinei la copii" },
+    ],
+  },
+  {
+    id: "seminte-papaya",
+    name: "Semințe de papaya",
+    latinName: "Carica papaya",
+    activeSubstance: "Benzil izotiocianat (BITC)",
+    mechanism:
+      "BITC (benzil izotiocianat) din semințele crude de papaya are efect antihelmitic direct — perturbă metabolismul energetic al viermilor intestinali, în special Ascaris.",
+    efficacy:
+      "Dovezi clinice solide: RCT Okeniyi 2007 (60 copii, 76.7% vs 16.7% eliminare paraziți, P=0.0000109). Studiu Kenya (326 copii, 63.9% reducere ouă Ascaris). Semințele TREBUIE să fie crude sau uscate la aer — căldura distruge BITC.",
+    evidenceLevel: "solid",
+    safetyChildren: "safe",
+    safetyBreastfeeding: "caution",
+    childrenNotes:
+      "Sigur — testat direct în studii clinice randomizate pe copii. Bine tolerat, fără efecte adverse semnificative raportate.",
+    breastfeedingNotes:
+      "Cu precauție — date insuficiente privind trecerea BITC în laptele matern. Papaya are efect uterotonic în doze mari. Folosiți cu moderație.",
+    usage: [
+      "Copii 4+: 1 linguriță semințe crude zdrobite, amestecate cu miere, pe stomacul gol",
+      "Adulți: 1–2 linguri semințe crude zdrobite, cu miere sau iaurt",
+      "Semințele TREBUIE crude sau uscate la aer (căldura distruge substanța activă)",
+      "Cura: zilnic timp de 7 zile, repetare după 4 săptămâni",
+    ],
+    targetParasites: [
+      {
+        parasiteId: "ascaris",
+        efficacy: "high",
+        notes: "RCT: 76.7% eliminare la copii; 63.9% reducere ouă în studiu pe 326 copii",
+      },
+    ],
+    references: [
+      { pmid: "17472487", text: "Okeniyi 2007 — RCT semințe papaya vs placebo, 60 copii" },
+      { pmid: "30526582", text: "Studiu Kenya — 326 copii, reducere Ascaris cu semințe papaya" },
+    ],
+  },
+  {
+    id: "ulei-ricin",
+    name: "Ulei de ricin (agent de eliminare)",
+    latinName: "Ricinus communis",
+    activeSubstance: "Acid ricinoleic",
+    mechanism:
+      "Acidul ricinoleic activează receptorii EP3 din mucoasa intestinală, provocând contracții intestinale puternice care ajută la eliminarea viermilor paralizați. Are și efect antihelmitic direct (97.4% mortalitate C. elegans în studiu in vitro).",
+    efficacy:
+      "Laxativ puternic cu dovezi preliminare de efect antihelmitic direct. Se folosește ca agent de eliminare după semințe de dovleac, nu ca tratament de sine stătător.",
+    evidenceLevel: "preliminary",
+    safetyChildren: "caution",
+    safetyBreastfeeding: "caution",
+    childrenNotes:
+      "Cu precauție — pentru copii se preferă citrat de magneziu sau psyllium ca alternativă mai blândă. Dacă se folosește: doze mici (1 linguriță), doar sub supraveghere.",
+    breastfeedingNotes:
+      "Cu precauție — poate cauza crampe abdominale și deshidratare. CONTRAINDICAT în sarcină (efect uterotonic). În alăptare: folosiți cu moderație, asigurați hidratare adecvată.",
+    usage: [
+      "Adulți: 1–3 linguri la 2–3 ore după administrarea semințelor de dovleac",
+      "Copii: se preferă citrat de magneziu (½ doză de adult) sau psyllium",
+      "NU se folosește pe stomacul gol fără tratament antiparazitar prealabil",
+      "Asigurați hidratare generoasă",
+    ],
+    warnings: [
+      "CONTRAINDICAT în sarcină (efect uterotonic puternic)",
+      "Nu se administrează pe termen lung — risc de dependență și deshidratare",
+      "Poate cauza crampe abdominale intense",
+      "Pentru copii: preferați citrat de magneziu sau fibre (psyllium)",
+    ],
+    references: [
+      { pmid: "40004099", text: "Efect antihelmitic direct al uleiului de ricin (in vitro, C. elegans)" },
     ],
   },
 ];

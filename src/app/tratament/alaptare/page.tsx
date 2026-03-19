@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import { remedies } from "@/data/remedies";
+import { parasiteProtocols } from "@/data/parasite-protocols";
+import ParasiteProtocolCard from "@/components/treatment/ParasiteProtocolCard";
 import PageContainer from "@/components/shared/PageContainer";
 import SectionHeading from "@/components/shared/SectionHeading";
 import SafetyBadge from "@/components/shared/SafetyBadge";
@@ -11,7 +13,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Tratament Natural în Perioada de Alăptare",
   description:
-    "Ghid de deparazitare naturală sigură pentru femei care alăptează.",
+    "Ghid de deparazitare naturală sigură pentru femei care alăptează. Protocoale per parazit adaptate alăptării.",
 };
 
 export default function AlaptatePage() {
@@ -27,7 +29,7 @@ export default function AlaptatePage() {
         </Link>
       </div>
 
-      <SectionHeading subtitle="Remedii compatibile cu alăptarea, precauții importante și când este nevoie de tratament convențional.">
+      <SectionHeading subtitle="Remedii compatibile cu alăptarea, precauții importante, protocoale per parazit și când este nevoie de tratament convențional.">
         Ghid pentru Femei care Alăptează
       </SectionHeading>
 
@@ -43,7 +45,7 @@ export default function AlaptatePage() {
 
       {/* Safe */}
       <section className="mb-12">
-        <h2 className="text-xl font-bold text-green-700 mb-4">✅ Remedii Sigure în Alăptare</h2>
+        <h2 className="text-xl font-bold text-green-700 mb-4">Remedii Sigure în Alăptare</h2>
         <div className="overflow-x-auto">
           <table className="hidden sm:table w-full text-sm">
             <thead>
@@ -80,7 +82,7 @@ export default function AlaptatePage() {
       {/* Caution */}
       {cautionRemedies.length > 0 && (
         <section className="mb-12">
-          <h2 className="text-xl font-bold text-amber-700 mb-4">⚠️ Cu Precauție</h2>
+          <h2 className="text-xl font-bold text-amber-700 mb-4">Cu Precauție</h2>
           <div className="space-y-3">
             {cautionRemedies.map((r) => (
               <div key={r.id} className="rounded-lg border border-amber-200 bg-amber-50 p-4">
@@ -97,7 +99,7 @@ export default function AlaptatePage() {
 
       {/* Danger */}
       <section className="mb-12">
-        <h2 className="text-xl font-bold text-red-700 mb-4">❌ Contraindicate în Alăptare</h2>
+        <h2 className="text-xl font-bold text-red-700 mb-4">Contraindicate în Alăptare</h2>
         <div className="space-y-3">
           {dangerRemedies.map((r) => (
             <div key={r.id} className="rounded-lg border border-red-200 bg-red-50 p-4">
@@ -107,6 +109,36 @@ export default function AlaptatePage() {
               </div>
               <p className="text-sm text-red-700">{r.breastfeedingNotes}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Giardia in breastfeeding — special note */}
+      <InfoBox variant="tip" title="Giardia în alăptare — combinația cea mai sigură" className="mb-8">
+        <p className="mb-2">
+          Berberina este <strong>contraindicată</strong> în alăptare (trece în lapte, deplasează bilirubina la sugar).
+        </p>
+        <p>
+          Pentru giardia în perioada de alăptare, <strong>usturoiul + S. boulardii</strong> este combinația cea mai sigură
+          și cu dovezi clinice. Usturoiul are studiu clinic pe copii (Soffar 1991), iar S. boulardii are RCT ca adjuvant
+          anti-Giardia (Besirbellioglu 2006). Ambele sunt sigure în alăptare.
+        </p>
+      </InfoBox>
+
+      {/* Parasite protocols for breastfeeding */}
+      <section className="mb-12">
+        <h2 className="text-xl font-bold text-stone-900 mb-2">Protocoale per Parazit — Adaptate Alăptării</h2>
+        <p className="text-sm text-stone-500 mb-6">
+          Protocoalele de mai jos exclud remediile contraindicate în alăptare.
+          Berberina este înlocuită cu usturoi + S. boulardii pentru tratamentul Giardia.
+        </p>
+        <div className="grid gap-8">
+          {parasiteProtocols.map((protocol) => (
+            <ParasiteProtocolCard
+              key={protocol.parasiteId}
+              protocol={protocol}
+              audience="alaptare"
+            />
           ))}
         </div>
       </section>
@@ -129,6 +161,10 @@ export default function AlaptatePage() {
             sugari.
           </li>
         </ul>
+        <p className="mt-2 font-medium">
+          Pentru giardia în alăptare, mebendazolul este mai sigur decât berberina.
+          Consultați medicul pentru o decizie informată.
+        </p>
       </InfoBox>
 
       {/* Pragmatic conclusion */}
@@ -139,7 +175,8 @@ export default function AlaptatePage() {
           dovleac, cimbru, dietă, probiotice) este o opțiune rezonabilă și
           sigură. Pentru infecții confirmate sau simptome moderate-severe,
           tratamentul convențional sub ghidaj medical poate fi mai sigur decât
-          protocoale agresive pe bază de plante.
+          protocoale agresive pe bază de plante. Berberina este contraindicată
+          în alăptare — nu o folosiți ca alternativă la metronidazol în această perioadă.
         </p>
       </div>
 

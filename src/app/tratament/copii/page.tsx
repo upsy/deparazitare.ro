@@ -1,6 +1,9 @@
 import { Metadata } from "next";
 import { remedies } from "@/data/remedies";
+import { parasiteProtocols } from "@/data/parasite-protocols";
 import { doctorAlertConditions } from "@/data/diagnosis";
+import ParasiteProtocolCard from "@/components/treatment/ParasiteProtocolCard";
+import EliminationInfo from "@/components/treatment/EliminationInfo";
 import PageContainer from "@/components/shared/PageContainer";
 import SectionHeading from "@/components/shared/SectionHeading";
 import SafetyBadge from "@/components/shared/SafetyBadge";
@@ -12,19 +15,21 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Tratament Natural pentru Copii 4+ Ani",
   description:
-    "Ghid specific de deparazitare naturală pentru copii peste 4 ani. Dozaje adaptate și remedii sigure.",
+    "Ghid specific de deparazitare naturală pentru copii peste 4 ani. Dozaje adaptate, remedii sigure și protocoale per parazit.",
 };
 
 const friendlyForms = [
   { name: "Semințe de dovleac zdrobite în miere sau iaurt", icon: "🎃" },
   { name: "Ceai de cimbru cu miere — călduț sau rece", icon: "🍵" },
   { name: "Usturoi în supă cremă sau piure de cartofi", icon: "🧄" },
+  { name: "Semințe de papaya crude, zdrobite cu miere", icon: "🍈" },
   { name: "Morcovi cruzi tăiați în forme atractive", icon: "🥕" },
   { name: "Smoothie: morcov + miere + semințe dovleac + iaurt", icon: "🥤" },
 ];
 
 export default function CopiiPage() {
   const safeRemedies = remedies.filter((r) => r.safetyChildren === "safe");
+  const cautionRemedies = remedies.filter((r) => r.safetyChildren === "caution");
   const dangerRemedies = remedies.filter((r) => r.safetyChildren === "danger");
 
   return (
@@ -35,7 +40,7 @@ export default function CopiiPage() {
         </Link>
       </div>
 
-      <SectionHeading subtitle="Dozaje adaptate, forme prietenoase și remedii sigure pentru copii peste 4 ani.">
+      <SectionHeading subtitle="Dozaje adaptate, forme prietenoase, remedii sigure și protocoale per parazit pentru copii peste 4 ani.">
         Ghid pentru Copii 4+ Ani
       </SectionHeading>
 
@@ -100,9 +105,27 @@ export default function CopiiPage() {
         </div>
       </section>
 
+      {/* Caution remedies */}
+      {cautionRemedies.length > 0 && (
+        <section className="mb-12">
+          <h2 className="text-xl font-bold text-amber-700 mb-4">Cu Precauție la Copii</h2>
+          <div className="space-y-3">
+            {cautionRemedies.map((r) => (
+              <div key={r.id} className="rounded-lg border border-amber-200 bg-amber-50 p-4">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="font-medium text-stone-800">{r.name}</span>
+                  <SafetyBadge level="caution" />
+                </div>
+                <p className="text-sm text-amber-800">{r.childrenNotes}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Danger remedies */}
       <section className="mb-12">
-        <h2 className="text-xl font-bold text-red-700 mb-4">❌ Contraindicate la Copii</h2>
+        <h2 className="text-xl font-bold text-red-700 mb-4">Contraindicate la Copii</h2>
         <div className="space-y-3">
           {dangerRemedies.map((r) => (
             <div key={r.id} className="rounded-lg border border-red-200 bg-red-50 p-4">
@@ -114,6 +137,36 @@ export default function CopiiPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Parasite protocols for children */}
+      <section className="mb-12">
+        <h2 className="text-xl font-bold text-stone-900 mb-2">Protocoale per Parazit — Adaptate Copiilor</h2>
+        <p className="text-sm text-stone-500 mb-6">
+          Protocoalele de mai jos sunt adaptate copiilor: remediile contraindicate sunt excluse,
+          iar pentru eliminare se folosește citrat de magneziu (nu ulei de ricin).
+        </p>
+        <div className="grid gap-8">
+          {parasiteProtocols.map((protocol) => (
+            <ParasiteProtocolCard
+              key={protocol.parasiteId}
+              protocol={protocol}
+              audience="copii"
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* Elimination for children */}
+      <section className="mb-12">
+        <h2 className="text-xl font-bold text-stone-900 mb-4">Eliminarea — Opțiuni pentru Copii</h2>
+        <InfoBox variant="warning" className="mb-4">
+          <p>
+            Uleiul de ricin <strong>nu este recomandat copiilor</strong> din cauza efectului laxativ puternic.
+            Pentru copii, folosiți citrat de magneziu (½ doză de adult) sau fibre (psyllium).
+          </p>
+        </InfoBox>
+        <EliminationInfo forChildren />
       </section>
 
       {/* Hygiene */}
