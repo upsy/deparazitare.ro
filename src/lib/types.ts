@@ -164,6 +164,22 @@ export interface PageMeta {
   path: string;
 }
 
+// Testimonial / documented experience
+export interface Testimonial {
+  id: string;
+  type: "clinical" | "personal";
+  source: string;
+  sourceUrl?: string;
+  parasites: ParasiteId[];
+  remediesUsed: string[];
+  summary: string;
+  details: string;
+  outcome: string;
+  duration?: string;
+  year?: number;
+  disclaimer?: string;
+}
+
 // Diet section
 export interface DietCategory {
   title: string;

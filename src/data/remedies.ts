@@ -9,7 +9,7 @@ export const remedies: Remedy[] = [
     mechanism:
       "Cucurbitina paralizează musculatura paraziților intestinali, provocând desprinderea lor de peretele intestinal. Important: paralizează viermii dar NU îi ucide — este nevoie de un laxativ la 2–3 ore după administrare pentru eliminarea lor efectivă.",
     efficacy:
-      "Activitate demonstrată in vitro și în studii pe animale. Studii limitate la om, cu rezultate promițătoare, mai ales pentru tenii. Efect mai slab comparativ cu medicamentele convenționale.",
+      "Activitate demonstrată in vitro și în studii pe animale. Studiu clinic China (Li et al. 2012, 91 pacienți): 75% rată de eliminare a teniilor (singure), 89% combinat cu extract de areca. Efect mai slab comparativ cu medicamentele convenționale.",
     evidenceLevel: "preliminary",
     safetyChildren: "safe",
     safetyBreastfeeding: "safe",
@@ -35,6 +35,9 @@ export const remedies: Remedy[] = [
         efficacy: "low",
         notes: "Efect limitat; utilizare tradițională, dovezi slabe",
       },
+    ],
+    references: [
+      { pmid: "22910218", text: "Li et al. 2012 — Semințe dovleac: 75% eliminare tenii (singure), 89% combinat cu extract de areca, China, 91 pacienți" },
     ],
   },
   {
@@ -69,7 +72,7 @@ export const remedies: Remedy[] = [
     mechanism:
       "Alicina afectează metabolismul energetic al paraziților și poate avea efect direct asupra unor protozoare (Giardia).",
     efficacy:
-      "Activitate anti-Giardia demonstrată in vitro și într-un studiu clinic (Soffar 1991 — 26 copii, toate simptomele rezolvate). Efect antiparazitar complementar.",
+      "Activitate anti-Giardia demonstrată in vitro și într-un studiu clinic (Soffar 1991 — 26 copii: 5 ml extract crud de usturoi în 100 ml apă, de 2 ori pe zi, 3 zile. Simptomele au dispărut în 36 ore la toți cei 26 copii. Vindecare parazitologică completă). Efect antiparazitar complementar.",
     evidenceLevel: "preliminary",
     safetyChildren: "safe",
     safetyBreastfeeding: "caution",
@@ -226,7 +229,7 @@ export const remedies: Remedy[] = [
     mechanism:
       "Restabilesc flora intestinală, creează un mediu nefavorabil paraziților, susțin imunitatea mucoasei intestinale. S. boulardii are activitate anti-Giardia directă — inhibă aderența trofozoiților la mucoasa intestinală.",
     efficacy:
-      "S. boulardii are activitate anti-Giardia demonstrată în studiu clinic randomizat (Besirbellioglu 2006). Probioticele susțin recuperarea și previn reinfecția.",
+      "S. boulardii are activitate anti-Giardia demonstrată în studiu clinic randomizat (Besirbellioglu 2006). Studiu experimental (Ribeiro 2021): ~90% reducere a încărcăturii parazitare în giardiază. RCT clinic: 70% pacienți ameliorați cu S. boulardii + metronidazol vs 10% cu placebo. Probioticele susțin recuperarea și previn reinfecția.",
     evidenceLevel: "preliminary",
     safetyChildren: "safe",
     safetyBreastfeeding: "safe",
@@ -249,6 +252,7 @@ export const remedies: Remedy[] = [
     ],
     references: [
       { pmid: "16798698", text: "Besirbellioglu 2006 — S. boulardii adjuvant anti-Giardia (RCT)" },
+      { pmid: "33289232", text: "Ribeiro 2021 — S. boulardii: ~90% reducere încărcătură parazitară în giardiază experimentală" },
     ],
   },
   {
@@ -279,7 +283,7 @@ export const remedies: Remedy[] = [
     mechanism:
       "Susține imunitatea, combate deficitul frecvent în infecțiile parazitare.",
     efficacy:
-      "Combate deficitul nutrițional cauzat de paraziți. Susține funcția imunitară.",
+      "Combate deficitul nutrițional cauzat de paraziți. Susține funcția imunitară. RCT (Long et al. 2007, 707 copii, Mexico): zinc + vitamina A reduce incidența infecției cu Giardia la copii.",
     evidenceLevel: "solid",
     safetyChildren: "caution",
     safetyBreastfeeding: "safe",
@@ -294,6 +298,16 @@ export const remedies: Remedy[] = [
     ],
     warnings: [
       "Supradozarea poate fi toxică — respectați dozele recomandate",
+    ],
+    targetParasites: [
+      {
+        parasiteId: "giardia",
+        efficacy: "low",
+        notes: "Zinc + vitamina A reduce incidența infecției cu Giardia la copii (RCT, 707 copii)",
+      },
+    ],
+    references: [
+      { pmid: "17908741", text: "Long et al. 2007 — RCT 707 copii Mexico: zinc + vitamina A reduce incidența Giardia" },
     ],
   },
   // --- Remedii noi ---
@@ -364,6 +378,11 @@ export const remedies: Remedy[] = [
         parasiteId: "ascaris",
         efficacy: "high",
         notes: "RCT: 76.7% eliminare la copii; 63.9% reducere ouă în studiu pe 326 copii",
+      },
+      {
+        parasiteId: "giardia",
+        efficacy: "moderate",
+        notes: "Okeniyi 2007: clearance 71.4–100% pentru mai mulți paraziți, inclusiv E. histolytica și G. lamblia",
       },
     ],
     references: [

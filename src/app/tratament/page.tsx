@@ -2,12 +2,14 @@ import { Metadata } from "next";
 import { treatmentPhases, cureRepeatInfo } from "@/data/treatment-protocol";
 import { remedies } from "@/data/remedies";
 import { parasiteProtocols } from "@/data/parasite-protocols";
+import { testimonials } from "@/data/testimonials";
 import PhaseCard from "@/components/treatment/PhaseCard";
 import RemedyCard from "@/components/treatment/RemedyCard";
 import DietSection from "@/components/treatment/DietSection";
 import ParasiteProtocolCard from "@/components/treatment/ParasiteProtocolCard";
 import EliminationInfo from "@/components/treatment/EliminationInfo";
 import ShoppingList from "@/components/treatment/ShoppingList";
+import TestimonialCard from "@/components/treatment/TestimonialCard";
 import PageContainer from "@/components/shared/PageContainer";
 import SectionHeading from "@/components/shared/SectionHeading";
 import DisclaimerBanner from "@/components/shared/DisclaimerBanner";
@@ -117,6 +119,40 @@ export default function TratamentPage() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="mb-12">
+        <h2 className="text-xl font-bold text-stone-900 mb-2">Experiențe Documentate</h2>
+        <p className="text-sm text-stone-500 mb-4">
+          Studii de caz clinice și experiențe personale cu remedii naturale antiparazitare.
+        </p>
+        <InfoBox variant="warning" className="mb-6">
+          <p>
+            Aceste experiențe sunt prezentate doar în scop informativ. <strong>Nu înlocuiesc consultul medical.</strong>{" "}
+            Rezultatele individuale pot varia semnificativ. Consultați întotdeauna un medic înainte de a începe orice tratament.
+          </p>
+        </InfoBox>
+        <div className="mb-4">
+          <h3 className="text-sm font-semibold text-stone-700 uppercase tracking-wider mb-3">Studii clinice</h3>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {testimonials
+              .filter((t) => t.type === "clinical")
+              .map((t) => (
+                <TestimonialCard key={t.id} testimonial={t} />
+              ))}
+          </div>
+        </div>
+        <div>
+          <h3 className="text-sm font-semibold text-stone-700 uppercase tracking-wider mb-3">Experiențe personale</h3>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {testimonials
+              .filter((t) => t.type === "personal")
+              .map((t) => (
+                <TestimonialCard key={t.id} testimonial={t} />
+              ))}
+          </div>
+        </div>
+      </section>
+
       {/* Elimination */}
       <section className="mb-12">
         <h2 className="text-xl font-bold text-stone-900 mb-6">Eliminarea Paraziților</h2>
@@ -205,6 +241,24 @@ export default function TratamentPage() {
                 PMID:40004099
               </a>{" "}
               — Efect antihelmitic direct al uleiului de ricin (in vitro)
+            </li>
+            <li>
+              <a href="https://pubmed.ncbi.nlm.nih.gov/22910218/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                PMID:22910218
+              </a>{" "}
+              — Li et al. 2012: Semințe dovleac — 75% eliminare tenii, 89% combinat cu areca (91 pacienți, China)
+            </li>
+            <li>
+              <a href="https://pubmed.ncbi.nlm.nih.gov/33289232/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                PMID:33289232
+              </a>{" "}
+              — Ribeiro 2021: S. boulardii — ~90% reducere încărcătură parazitară în giardiază experimentală
+            </li>
+            <li>
+              <a href="https://pubmed.ncbi.nlm.nih.gov/17908741/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                PMID:17908741
+              </a>{" "}
+              — Long et al. 2007: RCT 707 copii Mexico — zinc + vitamina A reduce incidența Giardia
             </li>
           </ul>
         </div>
