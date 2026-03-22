@@ -6,7 +6,7 @@ export interface ShoppingProduct {
   description: string;
   price: number;
   quantity: string;
-  category: "supliment" | "aliment" | "laxativ";
+  category: "supliment" | "aliment" | "laxativ" | "binder";
   links: { store: string; url: string }[];
   alternativeNote?: string;
 }
@@ -214,6 +214,87 @@ export const shoppingProducts: ShoppingProduct[] = [
       },
     ],
   },
+  // --- Bindere ---
+  {
+    id: "carbune-activ-capsule",
+    name: "Cărbune activ 250 mg (Adams Vision)",
+    description: "60 capsule, cărbune vegetal activat. Adsorbant intestinal universal",
+    price: 18,
+    quantity: "60 capsule (suficient pt 2–3 săptămâni)",
+    category: "binder",
+    links: [
+      {
+        store: "Farmacia Tei",
+        url: "https://comenzi.farmaciatei.ro/vitamine-si-suplimente/digestie/detoxifiere/carbune-medicinal-capsule-adams-vision-p309012",
+      },
+    ],
+    alternativeNote:
+      "Alternativă: Carbune activ comprimate (Fares) ~12 lei sau Norit capsule ~25 lei",
+  },
+  {
+    id: "bentonita-pulbere",
+    name: "Bentonită argilă pulbere (food-grade)",
+    description: "Argilă montmorilonit de calitate alimentară. Binder natural pentru toxine și metale grele",
+    price: 35,
+    quantity: "200 g (suficient pt 1–2 cure)",
+    category: "binder",
+    links: [
+      {
+        store: "Phyto-Sapiens",
+        url: "https://magazin.phyto-sapiens.ro/argila-bentonita.html",
+      },
+    ],
+    alternativeNote:
+      "Asigurați-vă că este food-grade (calitate alimentară). Evitați produsele industriale.",
+  },
+  {
+    id: "zeolite-capsule",
+    name: "Zeolit Clinoptilolit capsule (Zenith Minerals)",
+    description: "60 capsule, clinoptilolit micronizat de calitate farmaceutică",
+    price: 55,
+    quantity: "60 capsule (suficient pt 2–4 săptămâni)",
+    category: "binder",
+    links: [
+      {
+        store: "Farmacia Tei",
+        url: "https://comenzi.farmaciatei.ro/vitamine-si-suplimente/digestie/detoxifiere/zeolit-capsule-p370123",
+      },
+    ],
+    alternativeNote:
+      "Alegeți doar zeolit micronizat de calitate farmaceutică sau alimentară.",
+  },
+  {
+    id: "chlorella-tablete",
+    name: "Chlorella 500 mg tablete (Republica BIO)",
+    description: "300 tablete, chlorella cu perete celular spart. Chelator natural blând",
+    price: 45,
+    quantity: "300 tablete (suficient pt 1–2 luni)",
+    category: "binder",
+    links: [
+      {
+        store: "Farmacia Tei",
+        url: "https://comenzi.farmaciatei.ro/vitamine-si-suplimente/digestie/detoxifiere/chlorella-tablete-republica-bio-p365421",
+      },
+    ],
+    alternativeNote:
+      "Alternativă: Chlorella pulbere (~35 lei/100g). Preferați varianta broken cell wall (perete celular spart) pentru absorbție optimă.",
+  },
+  {
+    id: "pectina-citrice",
+    name: "Pectină de citrice modificată (MCP)",
+    description: "Fibră solubilă din citrice. Cel mai blând binder, ideal pentru copii",
+    price: 65,
+    quantity: "100 g pulbere (suficient pt 2–4 săptămâni)",
+    category: "binder",
+    links: [
+      {
+        store: "Phyto-Sapiens",
+        url: "https://magazin.phyto-sapiens.ro/pectina-citrice-modificata.html",
+      },
+    ],
+    alternativeNote:
+      "Alternativă naturală: coajă de lămâie razuită în mâncare (conține pectină naturală, dar concentrație mai mică).",
+  },
 ];
 
 function getProduct(id: string) {
@@ -276,6 +357,63 @@ export function getBundleTotal(bundle: ShoppingBundle, essentialOnly = false): n
 
 export function getBundleProducts(bundle: ShoppingBundle) {
   return bundle.items
+    .map((item) => ({
+      ...item,
+      product: getProduct(item.productId)!,
+    }))
+    .filter((item) => item.product);
+}
+
+// --- Protocol General Bundle ---
+
+export interface GeneralShoppingBundle {
+  protocolId: string;
+  protocolName: string;
+  items: {
+    productId: string;
+    essential: boolean;
+    notes: string;
+  }[];
+}
+
+export const generalProtocolBundle: GeneralShoppingBundle = {
+  protocolId: "protocol-general",
+  protocolName: "Protocol General Deparazitare + Bindere",
+  items: [
+    // Bindere
+    { productId: "carbune-activ-capsule", essential: true, notes: "Binder principal — pe toată durata curei, între mese" },
+    { productId: "chlorella-tablete", essential: false, notes: "Binder blând — ideal pt faza de refacere și utilizare prelungită" },
+    { productId: "pectina-citrice", essential: false, notes: "Cel mai blând binder — prima alegere pt copii" },
+    { productId: "bentonita-pulbere", essential: false, notes: "Binder intensiv — pt faza 3 de eliminare" },
+    { productId: "zeolite-capsule", essential: false, notes: "Alternativă binder intensiv — pt faza 3" },
+    // Antiparazitare
+    { productId: "seminte-dovleac", essential: true, notes: "Remediu antiparazitar principal — dimineața pe stomacul gol" },
+    { productId: "ceai-cimbru", essential: true, notes: "Adjuvant antiparazitar — 2–3 căni/zi" },
+    { productId: "usturoi", essential: true, notes: "Antiparazitar complementar" },
+    // Suport
+    { productId: "probiotice-hepiflor", essential: true, notes: "Pe toată durata curei + 4 săpt. după (2–3 cutii necesare)" },
+    { productId: "zinc-walmark", essential: true, notes: "Susține imunitatea (adulți)" },
+    { productId: "zinc-copii", essential: false, notes: "Alternativă zinc pt copii" },
+    // Eliminare
+    { productId: "psyllium", essential: true, notes: "Fibre — cel mai blând agent de eliminare" },
+    { productId: "ulei-ricin", essential: false, notes: "Agent eliminare intensiv — doar adulți" },
+    { productId: "citrat-magneziu", essential: false, notes: "Agent eliminare copii — alternativă la ulei ricin" },
+    // Alimente
+    { productId: "miere", essential: false, notes: "Amestec cu semințe de dovleac" },
+  ],
+};
+
+export function getGeneralBundleTotal(essentialOnly = false): number {
+  return generalProtocolBundle.items
+    .filter((item) => !essentialOnly || item.essential)
+    .reduce((total, item) => {
+      const product = getProduct(item.productId);
+      return total + (product?.price ?? 0);
+    }, 0);
+}
+
+export function getGeneralBundleProducts() {
+  return generalProtocolBundle.items
     .map((item) => ({
       ...item,
       product: getProduct(item.productId)!,

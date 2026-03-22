@@ -16,6 +16,7 @@ export const mainNav: NavItem[] = [
     href: "/tratament",
     label: "Tratament",
     children: [
+      { href: "/tratament/protocol-general", label: "Protocol General" },
       { href: "/tratament/copii", label: "Copii 4+" },
       { href: "/tratament/alaptare", label: "Alăptare" },
     ],
@@ -67,6 +68,12 @@ export const pages: Record<string, PageMeta> = {
     description:
       "Protocol de tratament natural antiparazitar în 3 faze: pregătire, tratament activ și refacere. Remedii naturale sigure și eficiente.",
     path: "/tratament",
+  },
+  "/tratament/protocol-general": {
+    title: "Protocol General de Deparazitare Naturală — Cu Bindere",
+    description:
+      "Protocol unificat de deparazitare naturală în 4 faze, cu bindere pentru eliminarea toxinelor. Cărbune activ, bentonită, zeolite, chlorella, pectină de citrice.",
+    path: "/tratament/protocol-general",
   },
   "/tratament/copii": {
     title: "Tratament Natural pentru Copii 4+ Ani",

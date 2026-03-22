@@ -60,6 +60,9 @@ export default function TratamentPage() {
       <DisclaimerBanner className="mb-8" />
 
       <div className="flex flex-wrap gap-3 mb-8">
+        <Link href="/tratament/protocol-general" className="rounded-lg bg-secondary px-4 py-2.5 text-sm font-medium text-white hover:bg-secondary/90">
+          Protocol General (cu bindere) →
+        </Link>
         <Link href="/tratament/copii" className="rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-white hover:bg-primary-light">
           Ghid specific copii 4+ →
         </Link>
@@ -74,6 +77,23 @@ export default function TratamentPage() {
         <p className="text-sm text-stone-500 mb-6">
           Fiecare parazit necesită o abordare diferită. Selectează parazitul pentru a vedea protocolul specific.
         </p>
+
+        {/* General protocol card */}
+        <Link
+          href="/tratament/protocol-general"
+          className="block rounded-xl border-2 border-indigo-200 bg-indigo-50/50 hover:bg-indigo-50 p-5 mb-4 transition-colors"
+        >
+          <div className="flex items-center gap-3">
+            <span className="text-3xl" aria-hidden="true">🛡️</span>
+            <div>
+              <h3 className="font-bold text-stone-900">Protocol General + Bindere</h3>
+              <p className="text-sm text-stone-600 mt-1">
+                Nu știi ce parazit ai? Protocol unificat cu spectru larg, în 4 faze, cu bindere pentru eliminarea toxinelor.
+              </p>
+            </div>
+          </div>
+        </Link>
+
         <div className="grid gap-4 sm:grid-cols-3">
           {parasiteCards.map((p) => (
             <a

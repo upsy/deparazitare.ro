@@ -422,6 +422,151 @@ export const remedies: Remedy[] = [
       { pmid: "40004099", text: "Efect antihelmitic direct al uleiului de ricin (in vitro, C. elegans)" },
     ],
   },
+  // --- Bindere (toxin binders) ---
+  {
+    id: "carbune-activ",
+    name: "Cărbune activ",
+    activeSubstance: "Carbon activat (adsorbanți microporoși)",
+    mechanism:
+      "Suprafața extrem de poroasă a cărbunelui activ adsoarbe toxinele, endotoxinele și metaboliții eliberați de paraziți în timpul morții lor (reacția die-off). Toxinele se leagă ireversibil de carbon și sunt eliminate prin scaun, prevenind reabsorbția lor în circulație.",
+    efficacy:
+      "Adsorbant universal aprobat medical pentru intoxicații acute. Utilizare bine documentată ca antidot (FDA-approved). Capacitate de adsorbție: 1 g cărbune activ poate lega 100–200 mg substanțe toxice. Utilizarea ca binder în protocoale de deparazitare se bazează pe mecanismul farmacologic stabilit, nu pe studii clinice specifice pe paraziți.",
+    evidenceLevel: "solid",
+    safetyChildren: "caution",
+    safetyBreastfeeding: "safe",
+    childrenNotes:
+      "Cu precauție — sigur la doze adecvate (250–500 mg/doză), dar poate cauza constipație. IMPORTANT: se ia la minim 2 ore distanță de orice medicament sau supliment (le inactivează). Nu se administrează pe termen lung (peste 2 săptămâni) fără supraveghere.",
+    breastfeedingNotes:
+      "Sigur — nu se absoarbe sistemic, rămâne în tractul gastrointestinal. Nu trece în laptele matern.",
+    usage: [
+      "Adulți: 500–1000 mg (1–2 capsule) de 2–3 ori pe zi, între mese",
+      "Copii 4+: 250–500 mg de 1–2 ori pe zi",
+      "Se ia la 30–60 min ÎNAINTE de masă SAU la 2 ore DUPĂ mese și suplimente",
+      "Se bea multă apă (minim 250 ml la fiecare doză)",
+      "Cura: 7–21 zile, pe durata tratamentului antiparazitar și 7 zile după",
+    ],
+    warnings: [
+      "Se ia la MINIM 2 ore distanță de medicamente, suplimente și probiotice — le inactivează",
+      "Poate cauza constipație — asigurați hidratare generoasă",
+      "Colorează scaunul negru (normal, nu este motiv de îngrijorare)",
+      "Nu se administrează pe termen lung fără supraveghere medicală",
+    ],
+  },
+  {
+    id: "bentonita",
+    name: "Bentonită",
+    activeSubstance: "Montmorilonit (argilă smectitică)",
+    mechanism:
+      "Argila bentonită are o structură stratificată cu sarcină electrică negativă care atrage și leagă toxinele, metalele grele și endotoxinele cu sarcină pozitivă. Formează un gel în tractul intestinal care captează substanțele toxice și le transportă spre eliminare prin scaun.",
+    efficacy:
+      "Studii in vitro demonstrează capacitate de legare a aflatoxinelor, metalelor grele (plumb, cadmiu) și a unor endotoxine bacteriene. Utilizare tradițională în detoxifiere. Studii pe animale arată reducerea absorbției de aflatoxine cu 80–90%. Date clinice limitate specific pentru detox post-parazitar.",
+    evidenceLevel: "preliminary",
+    safetyChildren: "caution",
+    safetyBreastfeeding: "caution",
+    childrenNotes:
+      "Cu precauție — unele produse pot conține urme de metale grele. Se folosește doar bentonită de calitate alimentară (food-grade). Nu se recomandă sub 6 ani.",
+    breastfeedingNotes:
+      "Cu precauție — date insuficiente la doze terapeutice. Nu se absoarbe sistemic, dar calitatea produsului este critică.",
+    usage: [
+      "Adulți: 1 linguriță (≈3–5 g) dizolvată în 250 ml apă, 1–2 ori pe zi",
+      "Se ia pe stomacul gol, cu 30–60 min înainte de masă",
+      "Se bea multă apă (risc de constipație)",
+      "Cura: 7–14 zile, în faza de eliminare intensivă",
+    ],
+    warnings: [
+      "Se folosește DOAR bentonită de calitate alimentară (food-grade)",
+      "Se ia la minim 2 ore distanță de medicamente și suplimente",
+      "Poate cauza constipație — hidratare obligatorie",
+      "Nu se recomandă pe termen lung (peste 2 săptămâni)",
+      "Unele produse pot conține urme de plumb — alegeți mărci testate",
+    ],
+  },
+  {
+    id: "zeolite",
+    name: "Zeolite (clinoptilolit)",
+    activeSubstance: "Clinoptilolit (mineral vulcanic microporos)",
+    mechanism:
+      "Clinoptilolitul are o structură cristalină de tip cușcă cu pori de dimensiune moleculară care captează selectiv metalele grele, amoniacul și toxinele de dimensiuni mici. Mecanismul de schimb ionic permite legarea toxinelor cu sarcină pozitivă (Pb²⁺, Cd²⁺, NH₄⁺) și eliberarea de ioni benefici (Ca²⁺, Mg²⁺, K⁺).",
+    efficacy:
+      "EFSA a evaluat clinoptilolitul ca aditiv alimentar. Studii pe animale demonstrează reducerea absorbției de metale grele. Studii clinice preliminare la om: reducerea nivelurilor de metale grele în urină. Mecanism de acțiune bine înțeles la nivel fizico-chimic.",
+    evidenceLevel: "preliminary",
+    safetyChildren: "caution",
+    safetyBreastfeeding: "caution",
+    childrenNotes:
+      "Cu precauție — date pediatrice limitate. Se folosește doar zeolit micronizat de calitate farmaceutică. Nu sub 6 ani.",
+    breastfeedingNotes:
+      "Cu precauție — nu se absoarbe sistemic, dar date insuficiente în alăptare.",
+    usage: [
+      "Adulți: 1–3 g/zi (conform prospectului produsului), de 1–2 ori pe zi",
+      "Se ia pe stomacul gol cu 250 ml apă",
+      "Se ia la 30–60 min înainte de masă sau la 2 ore după",
+      "Cura: 7–14 zile, în faza de eliminare intensivă",
+    ],
+    warnings: [
+      "Se folosește DOAR zeolit micronizat de calitate farmaceutică/alimentară",
+      "Se ia la minim 2 ore distanță de medicamente și suplimente",
+      "Hidratare adecvată obligatorie",
+      "Nu se recomandă pe termen lung fără supraveghere",
+    ],
+  },
+  {
+    id: "chlorella",
+    name: "Chlorella",
+    latinName: "Chlorella vulgaris",
+    activeSubstance: "Clorofilă, sporopolenină, fitonutrienți chelatori",
+    mechanism:
+      "Chlorella leagă metalele grele și toxinele prin mecanisme multiple: sporopolenina din peretele celular are capacitate naturală de chelare, iar clorofila susține detoxifierea hepatică. Stimulează și producția de glutation (antioxidant endogen). Acțiunea este mai blândă decât cărbunele activ, potrivită pentru utilizare prelungită.",
+    efficacy:
+      "Studii pe animale demonstrează reducerea absorbției de metilmercur și plumb. Studii clinice la om (Nakano 2005): reducerea nivelurilor de dioxine la femei care alăptează. Profil nutrițional bogat (proteine, vitamine B, fier). Utilizare tradițională extensivă în Japonia și Coreea.",
+    evidenceLevel: "preliminary",
+    safetyChildren: "safe",
+    safetyBreastfeeding: "safe",
+    childrenNotes:
+      "Sigur — bine tolerat, disponibil în forme pediatrice (tablete mici, pulbere). Se începe cu doză mică pentru a evita disconfortul digestiv.",
+    breastfeedingNotes:
+      "Sigur — utilizare tradițională îndelungată. Studiul Nakano 2005 a demonstrat reducerea toxinelor la femei care alăptează, fără efecte adverse asupra sugarului.",
+    usage: [
+      "Adulți: 3–5 g/zi (6–10 tablete de 500 mg), împărțit în 2–3 prize",
+      "Copii 4+: 1–2 g/zi (2–4 tablete de 500 mg)",
+      "Se începe cu doză mică (1 g) și se crește treptat pe parcursul a 3–5 zile",
+      "Se poate lua cu mese (acțiune mai blândă decât alți binderi)",
+      "Cura: 14–30 zile, se poate continua și în faza de refacere",
+    ],
+    warnings: [
+      "Se începe cu doză mică — poate cauza balonare sau greață inițial",
+      "Alegeți chlorella cu perete celular spart (broken cell wall) pentru absorbție optimă",
+      "Persoanele alergice la iod sau cu probleme tiroidiene — consultați medicul",
+    ],
+  },
+  {
+    id: "pectina-citrice",
+    name: "Pectină de citrice",
+    activeSubstance: "Pectină modificată din citrice (Modified Citrus Pectin — MCP)",
+    mechanism:
+      "Pectina modificată are molecule suficient de mici pentru a fi absorbite parțial, legând metalele grele și toxinele atât în intestin cât și în circulație. Ca fibră solubilă, formează un gel care captează toxinele în intestin și le elimină prin scaun. Cel mai blând binder, ideal pentru copii și persoane sensibile.",
+    efficacy:
+      "Studii clinice (Zhao et al. 2008): reducerea plumbului din sânge la copii cu 15–20% în 4 săptămâni cu pectină de citrice. Mecanism de legare a metalelor grele bine documentat. Ca fibră dietetică, are și efect prebiotic benefic.",
+    evidenceLevel: "preliminary",
+    safetyChildren: "safe",
+    safetyBreastfeeding: "safe",
+    childrenNotes:
+      "Sigur — este în esență o fibră din fructe. Cel mai blând binder, prima alegere pentru copii. Bine tolerat, fără efecte secundare semnificative.",
+    breastfeedingNotes:
+      "Sigur — fibră dietetică naturală. Nu se absoarbe sistemic în cantități relevante.",
+    usage: [
+      "Adulți: 5–15 g/zi, dizolvat în apă sau suc, între mese",
+      "Copii 4+: 3–5 g/zi, în apă sau suc de fructe",
+      "Se ia la 30–60 min înainte de masă pentru efect maxim de legare",
+      "Cura: 14–30 zile, se poate continua pe termen lung",
+    ],
+    warnings: [
+      "Poate cauza balonare ușoară la început — se crește doza treptat",
+      "Se bea apă suficientă (ca orice fibră solubilă)",
+    ],
+    references: [
+      { pmid: "18448706", text: "Zhao et al. 2008 — Pectină de citrice modificată reduce plumbul din sânge la copii spitalizați" },
+    ],
+  },
 ];
 
 export function getSafeRemedies(audience: "copii" | "alaptare"): Remedy[] {

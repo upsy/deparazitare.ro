@@ -180,6 +180,42 @@ export interface Testimonial {
   disclaimer?: string;
 }
 
+// General protocol (unified, not per-parasite)
+export type RemedyCategory = "antiparazitar" | "binder" | "probiotic" | "suport";
+
+export interface GeneralProtocolPhase {
+  phase: number;
+  name: string;
+  duration: string;
+  goal: string;
+  remedies: {
+    remedyId: string;
+    priority: "primar" | "adjuvant";
+    category: RemedyCategory;
+    notes: string;
+    timing?: string;
+  }[];
+  steps: string[];
+  binderTiming?: string;
+}
+
+export interface GeneralProtocol {
+  id: string;
+  name: string;
+  description: string;
+  targetAudience: string;
+  totalDuration: string;
+  phases: GeneralProtocolPhase[];
+  herxheimerNote: {
+    title: string;
+    explanation: string;
+    symptoms: string[];
+    solution: string;
+  };
+  repeatCycle: { interval: string; times: number; reason: string };
+  conventionalNote: string;
+}
+
 // Diet section
 export interface DietCategory {
   title: string;
